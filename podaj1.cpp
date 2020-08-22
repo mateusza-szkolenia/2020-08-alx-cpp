@@ -2,12 +2,11 @@
 
 int main(){
 
-    int a, b;
+    double a, b;
 
     std::cout << "Podaj dwie liczby: " << std::endl;
 
-    std::cin >> a;
-    std::cin >> b;
+    std::cin >> a >> b;
 
     std::cout << "Suma liczb wynosi " << a + b << std::endl;
 
