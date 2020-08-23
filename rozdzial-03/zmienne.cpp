@@ -7,7 +7,31 @@ int main(){
     a = 65;
     std::cout << "Zmienna a wynosi: " << (int) a << std::endl;
 
-    a = a + 4;
+    a = a + 4; // dluga forma 
+    a += 4;    // krotka forma
+
+    a = a - 78;
+    a -= 78;
+
+    a = a * 7;
+    a *= 7;
+
+    a = a / 3;
+    a /= 3;
+
+    a = a % 57;
+    a %= 57;
+
+    a = a + 1;
+    a += 1;
+    a++;
+
+    a--;
+
+    ++a;
+    
+
+
 
     std::cout << "A teraz zmienna a wynosi: " << a << std::endl;
     b = 90;
