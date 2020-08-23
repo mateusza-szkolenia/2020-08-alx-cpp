@@ -11,13 +11,19 @@
 - Program podaje największą podaną liczbę.
 
 Przykład:
+```
     5
     10
     13
     11
     8
     12
+```
 
 Wynik:
+```
     13
-    
+```
+
+## Obliczanie pierwiastka z danej liczby
+Napisać program obliczający pierwiastek danej liczby metodą babilońską.
