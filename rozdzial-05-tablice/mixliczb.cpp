@@ -12,7 +12,17 @@ int main(){
     }
 
     for ( i = 0; i < n; i++ ){
-        std::cout << "tab[" << i << "] = " << tab[i] << std::endl;
+        int czy_maks;
+
+        //wersja z pomijaniem pierwszego i ostatniego
+        //czy_maks = ( i > 0 && i < n-1 && tab[i] > tab[i-1] && tab[i] > tab[i+1] );
+
+        //wersja z "zawijaniem dookola"
+        czy_maks = ( tab[i] > tab[ (i+n-1) % n ] && tab[i] > tab[ (i+1) % n] );
+
+        std::cout << "tab[" << i << "] = " 
+            << tab[i] << " " << ( czy_maks ? "*" : "" )
+            << std::endl;
     }
 
     
