@@ -1,6 +1,8 @@
 #include <iostream>
 
-void koszt1( int b ){
+const int cena_normalna = 20;
+
+int koszt1( int b ){
     int suma = 0;
     int i;
 
@@ -15,36 +17,36 @@ void koszt1( int b ){
         suma += cena;
         //std::cout << "bilet numer " << i << " cena " << cena << std::endl;
     }
-
-    std::cout << "Razem: " << suma << std::endl;
-
+    return suma;
 }
 
-void koszt3( int b ){
-    std::cout << "Razem:" << (( b <= 5 ) ? b * 20 : ( ( 5 * 20 ) + ( b - 5 ) * 15 )) << std::endl;
+int koszt3( int b ){
+    return (( b <= 5 ) ? b * 20 : ( ( 5 * 20 ) + ( b - 5 ) * 15 ));
 }
 
-void koszt2( int b ){
+int koszt2( int b ){
+    
     int suma = 0;
 
     if ( b <= 5 ){
-        suma = b * 20;
+        suma = b * cena_normalna;
     }
     else {
-        suma = 5 * 20 + ( b - 5 ) * 15;
+        suma = 5 * cena_normalna + ( b - 5 ) * 15;
     }
-
-    std::cout << "Razem: " << suma << std::endl;
-
+    return suma;
 }
 
 int main(){
     int ile;
 
     double kurs = 4.46;
+    double calk;
 
     std::cin >> ile;
 
-    koszt3( ile );
+    calk = koszt3( ile );
+
+    std::cout << "Koszt biletow to: " << calk << std::endl;
 
 }

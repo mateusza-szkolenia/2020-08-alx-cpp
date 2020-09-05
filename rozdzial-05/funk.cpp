@@ -20,8 +20,6 @@ void dwukrotnosc( int a ){
     std::cout << "Dwukrotnosc liczby wynosi: " << 2 * a << std::endl;
 }
 
-
-
 int main(){
     dwukrotnosc( 10 );
 
