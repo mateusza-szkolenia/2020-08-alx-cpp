@@ -3,11 +3,15 @@
 #include "odleglosc.hpp"
 
 struct Sklep {
+    int id;
     double x;
     double y;
-    short klienci;
+    int wioski;
+    int klienci;
     void pokaz(){
-        std::cout << "Sklep (" << this->x << "," << this->y << "): " << this->klienci << std::endl;
+        std::cout << "Sklep " << this->id << " (" << this->x << "," << this->y << "): " << 
+            " klientow:" << this->klienci <<
+            " z wiosek: " << this->wioski << std::endl;
     }
 };
 
@@ -29,9 +33,11 @@ int main(){
     std::cin >> ns;
     Sklep sklepy[ ns ];
     for ( int i=0; i<ns; i++ ){
+        sklepy[i].id = i;
         std::cin >> sklepy[i].x;
         std::cin >> sklepy[i].y;
         sklepy[i].klienci = 0;
+        sklepy[i].wioski = 0;
     }
 
     std::cin >> nw;
@@ -50,12 +56,20 @@ int main(){
             }
         }
         wioski[i].najblizszy_sklep = &sklepy[numnajs]; // zadanie 4
+        
         sklepy[numnajs].klienci += wioski[i].pop;
+        sklepy[numnajs].wioski++;
     }
 
     for ( int i = 0; i<ns; i++ ){
         sklepy[i].pokaz();
     }
+
+    for ( int i = 0; i<nw; i++ ){
+        std::cout << "Wioska " << i << ": ";
+        wioski[i].najblizszy_sklep->pokaz();
+    }
+
 
 
     //std::cout << odleglosc_sw( sklepy[0], w1 ) << std::endl;
