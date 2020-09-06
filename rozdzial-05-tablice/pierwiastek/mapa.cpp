@@ -26,7 +26,7 @@ int main(){
         std::cin >> wp[i];
     }
 for ( int i = 0; i < liczba_wiosek; i++){
-        std::cout << "Wiosek #" << i << ": ("
+        std::cout << "Wioska #" << i << ": ("
             << wx[i] << ", " << wy[i] << ") " << wp[i] << std::endl;
     }
 }
