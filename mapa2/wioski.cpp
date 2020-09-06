@@ -5,8 +5,7 @@
 struct Sklep {
     double x;
     double y;
-    int klienci;
-    int aaa;
+    short klienci;
     void pokaz(){
         std::cout << "Sklep (" << this->x << "," << this->y << "): " << this->klienci << std::endl;
     }
@@ -16,6 +15,7 @@ struct Wioska {
     double x;
     double y;
     int pop;
+    Sklep *najblizszy_sklep; // zadanie 4
 };
 
 double odleglosc_sw( Sklep s, Wioska w ){
@@ -49,6 +49,7 @@ int main(){
                 numnajs = j;
             }
         }
+        wioski[i].najblizszy_sklep = &sklepy[numnajs]; // zadanie 4
         sklepy[numnajs].klienci += wioski[i].pop;
     }
 
@@ -58,5 +59,7 @@ int main(){
 
 
     //std::cout << odleglosc_sw( sklepy[0], w1 ) << std::endl;
+
+    std::cout << sizeof( Sklep ) << std::endl;
 
 }
