@@ -3,3 +3,4 @@
 3. Dopisć metodę `pokaz()` dla struktury `Wioska`
 4. Dopisać pole najbliższy sklep do struktury `Wioska` (typu wskaźnik do `Sklep`) i dopisać w algorytmie zapisywanie odpowiedniej wartości do tego pola.
 5. Dopisać do metody `pokaz()` struktury `Wioska` pokazywanie najbliższego sklepu i odległości do niego.
+6. Dopisać do struktury `Sklep` pole z licznikiem wiosek, które korzystają z tego sklepu (i odpowiedni kod obliczający to)
