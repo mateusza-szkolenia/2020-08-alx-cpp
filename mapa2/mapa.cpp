@@ -2,16 +2,21 @@
 #include "odleglosc.hpp"
 
 int main(){
-    double sklepx, sklepy, sklepr;
-
+    
     int liczba_wiosek;
-    int wzasiegu = 0;
+    int liczba_sklepow;
 
-    std::cin >> sklepx;
-    std::cin >> sklepy;
-    std::cin >> sklepr;
+    std::cin >> liczba_sklepow;
+    double sklepx[ liczba_sklepow ];
+    double sklepy[ liczba_sklepow ];
 
-    std::cout << "Sklep: " << sklepx << ", " << sklepy << " (" << sklepr << ")\n";
+    int sklepyk[ liczba_sklepow ];
+
+    for ( int i = 0; i < liczba_sklepow; i++){
+        std::cin >> sklepx[i];
+        std::cin >> sklepy[i];
+        sklepyk[ i ] = 0;
+    }
 
     std::cin >> liczba_wiosek;
 
@@ -27,20 +32,28 @@ int main(){
         std::cin >> wp[i];
     }
     for ( int i = 0; i < liczba_wiosek; i++){
-        double odl;
-        odl = odleglosc( sklepx, sklepy, wx[i], wy[i] );
+        int ns;
+        //odl = odleglosc( sklepx, sklepy, wx[i], wy[i] );
+        
 
         std::cout << "Wioska #" << i << ": ("
-            << wx[i] << ", " << wy[i] << ") " << wp[i] << 
-            " = " << odl << " vs " << sklepr << std::endl;
-        if ( odl < sklepr ){
-            wzasiegu += wp[i];
-            std::cout << "W zasiegu" << std::endl;
+            << wx[i] << ", " << wy[i] << ") " << wp[i] 
+            << std::endl;
+       
+        ns = 0;
+        for ( int j = 0; j < liczba_sklepow; j++ ){
+            double odl = odleglosc( wx[i], wy[i], sklepx[j], sklepy[j] );
+            if ( odl < odleglosc( wx[i], wy[i], sklepx[ns], sklepy[ns] )  ){
+                ns = j;
+            }
+            std::cout << "Sklep " << sklepx[j] << ", " << sklepy[j] << "=" << odl;            
+            std::cout << std::endl;
         }
-        else {
-            std::cout << "Za daleko" << std::endl;
-        }
+        std::cout << "Najmniejsza: " << ns << std::endl;
+        sklepyk[ ns ] += wp[i];
     }
 
-    std::cout << "W zasiegu: " << wzasiegu << std::endl;
+    for ( int i = 0; i < liczba_sklepow; i++ ){
+        std::cout << "Sklep #" << i << ": " << sklepyk[ i ] << std::endl;
+    }
 }
