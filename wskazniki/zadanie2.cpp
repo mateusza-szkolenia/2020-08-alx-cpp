@@ -1,10 +1,7 @@
 /*
 Napisac funkcje liczaca sume elementow w tablicy
 
-
 int suma( int *tab, int n ){
-
-
 }
 */
 
@@ -13,9 +10,14 @@ int suma( int *tab, int n ){
 int suma( int *, int );
 
 int main(){
-
+    int liczby[] = { 1, 7, 90, 3, 45 };
+    std::cout << "suma wynosi: " << suma( liczby, 5 ) << std::endl;
 }
 
 int suma( int *tab, int n ){
-
+    int s = 0;
+    for ( int i = 0; i < n ; i++ ){
+        s += tab[i];
+    }
+    return s;
 }
