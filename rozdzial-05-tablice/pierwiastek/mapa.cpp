@@ -5,6 +5,7 @@ int main(){
     double sklepx, sklepy, sklepr;
 
     int liczba_wiosek;
+    int wzasiegu = 0;
 
     std::cin >> sklepx;
     std::cin >> sklepy;
@@ -25,8 +26,21 @@ int main(){
         std::cin >> wy[i];
         std::cin >> wp[i];
     }
-for ( int i = 0; i < liczba_wiosek; i++){
+    for ( int i = 0; i < liczba_wiosek; i++){
+        double odl;
+        odl = odleglosc( sklepx, sklepy, wx[i], wy[i] );
+
         std::cout << "Wioska #" << i << ": ("
-            << wx[i] << ", " << wy[i] << ") " << wp[i] << std::endl;
+            << wx[i] << ", " << wy[i] << ") " << wp[i] << 
+            " = " << odl << " vs " << sklepr << std::endl;
+        if ( odl < sklepr ){
+            wzasiegu += wp[i];
+            std::cout << "W zasiegu" << std::endl;
+        }
+        else {
+            std::cout << "Za daleko" << std::endl;
+        }
     }
+
+    std::cout << "W zasiegu: " << wzasiegu << std::endl;
 }
