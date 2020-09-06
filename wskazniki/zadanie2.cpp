@@ -16,6 +16,6 @@ int main(){
 
 }
 
-int suma( int *tab; int n ){
+int suma( int *tab, int n ){
 
 }
