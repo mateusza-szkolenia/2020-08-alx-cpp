@@ -11,4 +11,6 @@ int main(){
     std::cout << (double) u2 << std::endl;
     std::cout << ( ( u1 > u2 ) ? "pierwszy mniejszy" : "drugi mniejszy " ) << std::endl;
 
+    std::cout << (std::string) u1 << std::endl;
+
 }

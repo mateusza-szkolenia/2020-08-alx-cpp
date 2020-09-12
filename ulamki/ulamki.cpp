@@ -116,6 +116,11 @@ Ulamek::operator int(){
     return licznik / mianownik;
 }
 
+Ulamek::operator std::string(){
+    std::string w;
+    w = std::to_string( licznik ) + "/" + std::to_string( mianownik );
+    return w;
+}
 
 void Ulamek::skroc_sie(){
     int dz;

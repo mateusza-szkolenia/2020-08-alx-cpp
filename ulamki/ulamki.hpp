@@ -37,7 +37,8 @@ class Ulamek {
 
         operator double();
         operator int();
- 
+        operator std::string();
+
 };
 
 #endif
