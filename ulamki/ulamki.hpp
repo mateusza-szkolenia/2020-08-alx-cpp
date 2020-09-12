@@ -5,10 +5,11 @@
 
 int gcd(int , int );
 
-struct Ulamek {
-    private:
+class Ulamek {
+    
         int licznik;
         int mianownik;
+        void skroc_sie();
     
     public:
         void setLicznik( int l );
@@ -22,13 +23,21 @@ struct Ulamek {
         Ulamek( int l, int m );
         Ulamek( int l );
         Ulamek();
-        
+
         Ulamek mnoz( const Ulamek& u );
 
         Ulamek dodaj( const Ulamek& u );
         Ulamek operator * ( const Ulamek& u );
+        Ulamek operator + ( const Ulamek& u );
+        Ulamek operator - ( const Ulamek& u );
+        Ulamek operator / ( const Ulamek& u );
 
-        void skroc_sie();
+        int operator > ( const Ulamek& u );
+
+
+        operator double();
+        operator int();
+ 
 };
 
 #endif

@@ -63,6 +63,28 @@ Ulamek Ulamek::dodaj( const Ulamek& u ){
     return wynik;
 }
 
+Ulamek Ulamek::operator + ( const Ulamek& u ){
+    Ulamek wynik;
+    wynik.licznik = this->licznik * u.mianownik + this->mianownik * u.licznik;
+    wynik.mianownik = this->mianownik * u.mianownik;
+    wynik.skroc_sie();
+    return wynik;
+}
+Ulamek Ulamek::operator - ( const Ulamek& u ){
+    Ulamek wynik;
+    wynik.licznik = this->licznik * u.mianownik - this->mianownik * u.licznik;
+    wynik.mianownik = this->mianownik * u.mianownik;
+    wynik.skroc_sie();
+    return wynik;
+}
+
+int Ulamek::operator > ( const Ulamek& u ){
+    return ( this->licznik * u.mianownik - this->mianownik * u.licznik > 0 );
+}
+
+
+
+
 Ulamek Ulamek::operator * ( const Ulamek& u ){
     Ulamek wynik;
     wynik.licznik = this->licznik * u.licznik;
@@ -70,6 +92,30 @@ Ulamek Ulamek::operator * ( const Ulamek& u ){
     wynik.skroc_sie();
     return wynik;
 }
+
+
+Ulamek Ulamek::operator / ( const Ulamek& u ){
+    Ulamek wynik;
+    wynik.licznik = this->licznik * u.mianownik;
+    wynik.mianownik = this->mianownik * u.licznik;
+    if ( wynik.mianownik == 0 ){
+        // Obsluga bledu
+        wynik.mianownik = 1;
+    }
+    wynik.skroc_sie();
+    return wynik;
+}
+
+Ulamek::operator double(){
+    double wynik;
+    wynik = (double)licznik / (double)mianownik;
+    return wynik;
+}
+
+Ulamek::operator int(){
+    return licznik / mianownik;
+}
+
 
 void Ulamek::skroc_sie(){
     int dz;
