@@ -1,6 +1,7 @@
 class Tablica {
     public:
         Tablica( int );
+        Tablica( const Tablica & );
         ~Tablica();
         void ustaw( int, int );
         int daj( int );
@@ -9,6 +10,8 @@ class Tablica {
         int suma();
         int min();
         int max();
+        Tablica& operator=( const Tablica &zrodlo );
+
     private:
         int rozmiar;
         int *dane;

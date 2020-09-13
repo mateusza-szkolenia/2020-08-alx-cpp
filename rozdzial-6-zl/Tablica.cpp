@@ -8,12 +8,29 @@ Tablica::Tablica( int rozmiar ){
     for ( auto i = 0; i < rozmiar; i++ ){
         this->dane[i] = 0;
     }
-    std::cout << "utworzono Tablica( " << rozmiar << ")" << std::endl;
+    std::cout << "utworzono Tablica( " << rozmiar << ")" << "@ " << this->dane << std::endl;
+}
+
+Tablica::Tablica( const Tablica &zrodlo ){
+    this->rozmiar = zrodlo.rozmiar;
+    this->dane = new int[this->rozmiar];
+    for ( auto i = 0; i < rozmiar; i++ ){
+        this->dane[i] = zrodlo.dane[i];
+    }
+    std::cout << "skopiowano Tablica( " << rozmiar << ")" << std::endl;
+}
+
+Tablica& Tablica::operator=( const Tablica& zrodlo ){
+    Tablica t = Tablica( zrodlo.rozmiar );
+    for ( auto i = 0; i < t.rozmiar; i++ ){
+        t.dane[i] = zrodlo.dane[i];
+    }
+    return t;
 }
 
 Tablica::~Tablica(){
     delete [] this->dane;
-    std::cout << "Zegnajcie!" << std::endl;
+    std::cout << "Zegnajcie! " << this->rozmiar << " @ " << this->dane << std::endl;
 }
 
 void Tablica::ustaw( int pozycja, int wartosc ){
