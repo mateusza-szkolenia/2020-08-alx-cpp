@@ -2,8 +2,8 @@
 
 import random
 
-sran = (3,5)
-nran = (25,35)
+sran = (13,15)
+nran = (125,135)
 xran = (0,400)
 yran = (0,400)
 pran = (5,20)
