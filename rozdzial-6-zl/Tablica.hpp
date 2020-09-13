@@ -6,6 +6,9 @@ class Tablica {
         int daj( int );
         void pokazsie( );
         void zmien_rozmiar( const int );
+        int suma();
+        int min();
+        int max();
     private:
         int rozmiar;
         int *dane;

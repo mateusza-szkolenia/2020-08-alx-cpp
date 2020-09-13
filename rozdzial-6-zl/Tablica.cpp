@@ -40,6 +40,35 @@ void Tablica::pokazsie(){
     }
 }
 
+int Tablica::suma(){
+    int s = 0;
+    for ( auto i = 0; i < this->rozmiar; i++ ){
+        s += this->dane[i];
+    }
+    return s;
+}
+
+int Tablica::min(){
+    int m = this->dane[0];
+    for ( auto i = 1; i < this->rozmiar; i++ ){
+        if ( this->dane[i] < m ){
+            m = this->dane[i];
+        }
+    }
+    return m;
+}
+
+int Tablica::max(){
+    int m = this->dane[0];
+    for ( auto i = 1; i < this->rozmiar; i++ ){
+        if ( this->dane[i] > m ){
+            m = this->dane[i];
+        }
+    }
+    return m;
+}
+
+
 void Tablica::zmien_rozmiar( const int nowy_rozmiar ){
     if ( nowy_rozmiar == this->rozmiar ){
         return;
