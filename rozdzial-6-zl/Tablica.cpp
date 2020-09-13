@@ -39,3 +39,38 @@ void Tablica::pokazsie(){
         std::cout << "Element nr " << i << " : " << this->daj( i ) << std::endl;
     }
 }
+
+void Tablica::zmien_rozmiar( const int nowy_rozmiar ){
+    if ( nowy_rozmiar == this->rozmiar ){
+        return;
+    }
+
+    int *np;
+    // zaalokuj nowa pamiec
+    np = new int[nowy_rozmiar];
+
+    if ( nowy_rozmiar > rozmiar ){
+        // przepisz istniejace wartosci
+        for( auto i=0; i < this->rozmiar; i++ ){
+            np[i] = this->dane[ i ];
+        }
+
+        // wyzeruj nowa czesc
+        for( auto i=this->rozmiar; i < nowy_rozmiar; i++ ){
+            np[i] = 0;
+        }
+    }
+    else {
+        for( auto i=0; i < nowy_rozmiar; i++ ){
+            np[i] = this->dane[ i ];
+        }
+    }
+    // zwolnij stara pamiec
+    delete [] this->dane;
+
+    // zamien wskaznik
+    this->dane = np;
+
+    // zamien rozmiar
+    this->rozmiar = nowy_rozmiar;
+}
