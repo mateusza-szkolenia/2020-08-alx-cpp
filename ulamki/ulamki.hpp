@@ -23,6 +23,7 @@ class Ulamek {
         Ulamek( int l, int m );
         Ulamek( int l );
         Ulamek();
+        ~Ulamek();
 
         Ulamek mnoz( const Ulamek& u );
 

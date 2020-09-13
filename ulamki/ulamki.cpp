@@ -43,9 +43,14 @@ Ulamek::Ulamek( int l, int m ){
         m = 1;
     }
     this->mianownik = m;
-    std::cout << "Powstal nowy ulamek o podanych l i m!" << std::endl;
+    std::cout << "Powstal nowy Ulamek() pod adresem " << this << std::endl;
     this->skroc_sie();
 }
+
+Ulamek::~Ulamek(){
+    std::cout << "Zniszczono Ulamek() z adresu " << this << std::endl;
+}
+
 
 Ulamek Ulamek::mnoz( const Ulamek& u ){
     Ulamek wynik;
