@@ -1,6 +1,9 @@
 #include <cmath>
 #include "Punkt.hpp"
 
+Punkt::Punkt() : Punkt( 0, 0 ){
+}
+
 Punkt::Punkt( double x, double y ){
     this->x = x;
     this->y = y;
