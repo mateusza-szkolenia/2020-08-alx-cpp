@@ -2,3 +2,4 @@ a.out
 prog1
 prog2
 *.json
+*.o
