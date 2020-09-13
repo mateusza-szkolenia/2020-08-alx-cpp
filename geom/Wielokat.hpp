@@ -5,7 +5,7 @@
 
 class Wielokat {
     public:
-        Wielokat();
+        Wielokat( int r = 16 );
         void dodaj( const Punkt & );
         double obwod();
         void pokaz();
