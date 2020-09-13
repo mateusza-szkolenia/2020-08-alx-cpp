@@ -3,12 +3,14 @@
 #include "Tablica.hpp"
 
 Tablica::Tablica( int rozmiar ){
+    this->id = Tablica::licznik;
+    Tablica::licznik++;
     this->rozmiar = rozmiar;
     this->dane = new int[rozmiar];
     for ( auto i = 0; i < rozmiar; i++ ){
         this->dane[i] = 0;
     }
-    std::cout << "utworzono Tablica( " << rozmiar << ")" << "@ " << this->dane << std::endl;
+    std::cout << "utworzono Tablica #"<< this->id << " ( " << rozmiar << ")" << "@ " << this->dane << std::endl;
 }
 
 Tablica::Tablica( const Tablica &zrodlo ){
@@ -21,11 +23,17 @@ Tablica::Tablica( const Tablica &zrodlo ){
 }
 
 Tablica& Tablica::operator=( const Tablica& zrodlo ){
-    Tablica t = Tablica( zrodlo.rozmiar );
-    for ( auto i = 0; i < t.rozmiar; i++ ){
-        t.dane[i] = zrodlo.dane[i];
+    if ( this == &zrodlo ){
+        return *this;
     }
-    return t;
+    delete [] this->dane;
+    this->rozmiar = zrodlo.rozmiar;
+    this->dane = new int[ zrodlo.rozmiar ];
+    
+    for ( auto i = 0; i < this->rozmiar; i++ ){
+        this->dane[i] = zrodlo.dane[i];
+    }
+    return *this;
 }
 
 Tablica::~Tablica(){
@@ -120,3 +128,5 @@ void Tablica::zmien_rozmiar( const int nowy_rozmiar ){
     // zamien rozmiar
     this->rozmiar = nowy_rozmiar;
 }
+
+int Tablica::licznik = 0;

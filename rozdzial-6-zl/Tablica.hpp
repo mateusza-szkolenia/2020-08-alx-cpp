@@ -1,5 +1,6 @@
 class Tablica {
     public:
+        static int licznik;
         Tablica( int );
         Tablica( const Tablica & );
         ~Tablica();
@@ -11,9 +12,11 @@ class Tablica {
         int min();
         int max();
         Tablica& operator=( const Tablica &zrodlo );
+        
 
     private:
         int rozmiar;
         int *dane;
+        int id;
 
 };
