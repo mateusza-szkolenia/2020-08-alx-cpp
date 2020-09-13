@@ -7,13 +7,16 @@ int main(){
     Punkt p2{5,0};
     Punkt p3{5,5};
 
-    Wielokat w1;
+    Wielokat w1{1};
+    Wielokat w2{7};
+        
+    for ( auto i = 0; i < 10000; i++ ){
+        w1.dodaj( Punkt( i+ 3, i/45 + 7 ) );
+    }
 
-    w1.dodaj( p1 );
-    w1.dodaj( p2 );
-    w1.dodaj( p3 );
-
-
-    std::cout << w1.obwod() << std::endl;
     w1.pokaz();
+    return 0;
+
+    //std::cout << w1.obwod() << std::endl;
+
 }
