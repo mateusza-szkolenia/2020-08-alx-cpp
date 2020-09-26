@@ -6,6 +6,7 @@ class Stos {
 
     public:
         Stos();
+        ~Stos();
 
         int pop();
         void push(const int);
