@@ -31,5 +31,4 @@ int main(){
         // ma się napisać!
     }
 
-
 }
