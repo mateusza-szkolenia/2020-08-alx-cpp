@@ -7,10 +7,10 @@ class Prostokat : public Kwadrat {
     private:
         double bok2;
     public:
-        Prostokat( const double a, const double b, int t = Figura::Prostokat );
+        Prostokat( const double a, const double b, int t = Figury::Prostokat );
         double getBok2() const;
         void setBok2( double a );
-        double getPole() const;
+        virtual double getPole() const;
 };
 
 #endif

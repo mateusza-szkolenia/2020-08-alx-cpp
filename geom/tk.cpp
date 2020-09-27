@@ -4,23 +4,47 @@
 #include "Prostokat.hpp"
 #include "Figura.hpp"
 
-double poleFigury( Kwadrat *x ){
-    if ( x->getTyp() == Figura::Prostokat ){
-        return static_cast<Prostokat *>(x)->getPole();
+double poleFigury( Figura *x ){
+    return x->getPole();
+}
+
+void zgadnijTyp( Figura *x ){
+
+    if ( dynamic_cast<Prostokat*>( x ) != nullptr ){
+        Prostokat *p = dynamic_cast<Prostokat*>( x );
+        std::cout << "To jest Prostokat o bokach: " 
+            << p->getBok() << "," << p->getBok2() << std::endl;
+    }
+    else if ( dynamic_cast<Kwadrat*>( x ) ) {
+        Kwadrat *k = dynamic_cast<Kwadrat *>( x );
+        std::cout << "To jest Kwadrat o boku " << k->getBok() << std::endl;
     }
     else {
-        return x->getPole();
+        std::cout << "To się nie ma prawa stać." << std::endl;
     }
+    
 }
 
 int main(){
     Kwadrat k{13};
-    Prostokat p{12,10};
+    Prostokat p{12,-2};
+    //Figura f; //niedozwolone, gdyż jest to klasa abstracyjna
+  
 
-    Kwadrat k2{10};
+    zgadnijTyp( &k );
+    zgadnijTyp( &p );
+    //zgadnijTyp( &f );
+    
+    return 0;
+}
+
+int main3(){
+    Kwadrat k{13};
+    Prostokat p{12,10};
 
     std::cout << "Kwadrat ma pole " << poleFigury( &k ) << std::endl;
     std::cout << "Prostokat ma pole " << poleFigury( &p ) << std::endl;
+    return 0;
 }
 
 int main2(){

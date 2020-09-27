@@ -3,7 +3,7 @@
 #ifndef KWADRAT_HPP
 #define KWADRAT_HPP
 
-class Kwadrat {
+class Kwadrat : public Figura {
     private:
         double bok;
         const int typ;
@@ -14,11 +14,11 @@ class Kwadrat {
 */
 
     public:
-        Kwadrat( const double a, int t = Figura::Kwadrat );
+        Kwadrat( const double a, int t = Figury::Kwadrat );
         double getBok() const ;
         void setBok( const double a );
         int getTyp() const;
-        double getPole() const;
+        virtual double getPole() const;
 };
 
 #endif
