@@ -9,6 +9,9 @@ int main(){
 
     int x;
     
+    x = 0;
+    std::cout << "Wartosc " << x << " wystepuje: " << l.count(x) << " razy" << std::endl;
+
     x = 101;
     std::cout << "Dodaję pierwszy element: " << x << std::endl;
     l.append( x );
@@ -18,9 +21,11 @@ int main(){
     l.insert( x );
 
     for ( auto i = 200; i < 210; i++ ){
-        l.append( i );
+        l.insert( i % 4 );
     }
 
     l.pokaz();
+    x = 0;
+    std::cout << "Wartosc " << x << " wystepuje: " << l.count(x) << " razy" << std::endl;
 
 }

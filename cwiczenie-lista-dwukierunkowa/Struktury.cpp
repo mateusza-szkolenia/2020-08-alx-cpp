@@ -39,7 +39,7 @@ bool Lista::is_empty() const {
     return this->licznik == 0;
 }
 
-void Lista::append( int v ){
+void Lista::append( const int v ){
     ElementListy *pe;
     pe = new ElementListy( v );
     pe->prev = this->last;
@@ -53,7 +53,7 @@ void Lista::append( int v ){
     this->licznik++;
 }
 
-void Lista::insert( int v ){
+void Lista::insert( const int v ){
     ElementListy *pe;
     pe = new ElementListy( v );
     pe->next = this->first;
@@ -65,6 +65,18 @@ void Lista::insert( int v ){
     }
     this->first = pe;
     this->licznik++;
+}
+
+int Lista::count( const int v ) const {
+    auto *cur = this->first;
+    int wynik = 0;
+    while ( cur != nullptr ){
+        if ( cur->wartosc == v ){
+            wynik++;
+        }
+        cur = cur->next;
+    }
+    return wynik;
 }
 
 ElementListy::ElementListy( const int v ):

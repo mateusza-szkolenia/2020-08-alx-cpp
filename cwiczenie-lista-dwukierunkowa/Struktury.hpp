@@ -12,8 +12,9 @@ class Lista {
         Lista();
         void pokaz() const;
         bool is_empty() const;
-        void append( int );
-        void insert( int );
+        void append( const int );
+        void insert( const int );
+        int count( const int ) const ;
 
 };
 
