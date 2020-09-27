@@ -17,9 +17,22 @@ void Lista::pokaz() const {
         std::cout << "*** PUSTA ***" << std::endl;
     }
     else {
-        // TODO: wyświetlić elementy
+        ElementListy *cur;
+        cur = this->first;
+        while( cur != nullptr ){
+            std::cout << "* ";
+            cur->pokaz();
+            cur = cur->next;
+        }
 
     }
+}
+
+void ElementListy::pokaz() const {
+    std::cout << "Element <" << this 
+        << "> wartosc=" << this->wartosc
+        << " [prev=" << prev << ", next=" << next << "]"
+        << std::endl;
 }
 
 bool Lista::is_empty() const {

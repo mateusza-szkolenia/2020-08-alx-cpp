@@ -22,6 +22,7 @@ class ElementListy {
         ElementListy *next;
         ElementListy *prev;
         ElementListy( const int );    
+        void pokaz() const;
 };
 
 
