@@ -79,6 +79,22 @@ void Lista::insert( const int v ){
     this->licznik++;
 }
 
+void Lista::insertAfter( ElementListy * const e, int v ){
+    if ( e->next == nullptr ){
+        // jesli e okazalo sie ostatnie, uzywamy funkcji append() i koniec
+        this->append( v );
+        return;
+    }
+
+    // tutaj wiemy, ze e nie jest ostatnie
+    auto pe = new ElementListy( v );
+    e->next->prev = pe;
+    pe->next = e->next;
+    e->next = pe;
+    pe->prev = e;
+    this->licznik++;
+}
+
 int Lista::count( const int v ) const {
     auto cur = this->first;
     int wynik = 0;

@@ -4,31 +4,22 @@
 
 int main(){
     Lista l;
-    l.pokaz();
+    
     int x;
     
     x = 0;
     std::cout << "Wartosc " << x << " wystepuje: " << l.count(x) << " razy" << std::endl;
 
-    for ( auto i = 200; i < 205; i++ ){
-        l.insert( i % 4 );
+    for ( auto i = 0; i<10; i++ ){
+        l.append( i );
     }
 
-    l.pokaz();
-    x = 0;
-    std::cout << "Wartosc " << x << " wystepuje: " << l.count(x) << " razy" << std::endl;
+    auto piatka = l.find( 5 );
 
-    auto e = l.find(3);
+    l.insertAfter( piatka, 100 );
 
-    l.deleteEle( e );
+    l.insertAfter( l.find(9), 200 );
 
     l.pokaz();
-
-    l.cleanup();
-    l.cleanup();
-    l.cleanup();
-
-    l.pokaz();
-
 
 }
