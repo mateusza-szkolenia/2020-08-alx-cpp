@@ -7,10 +7,19 @@ int main(){
 
     l.pokaz();
 
-    int x = 101;
-    std::cout << "Dodaję pierwszy element: " << 101 << std::endl;
-
+    int x;
+    
+    x = 101;
+    std::cout << "Dodaję pierwszy element: " << x << std::endl;
     l.append( x );
+
+    x = 102;
+    std::cout << "Dodaję drugi element: " << x << std::endl;
+    l.append( x );
+
+    for ( auto i = 200; i < 210; i++ ){
+        l.append( i );
+    }
 
     l.pokaz();
 
