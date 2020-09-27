@@ -14,5 +14,5 @@ void Lista::pokaz() const {
 }
 
 bool Lista::is_empty() const {
-    return true;
+    return this->licznik == 0;
 }
