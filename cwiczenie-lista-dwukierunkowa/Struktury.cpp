@@ -26,7 +26,17 @@ bool Lista::is_empty() const {
 
 void Lista::append( int v ){
     ElementListy *pe;
-    pe = new ElementListy();
-
+    pe = new ElementListy( v );
+    if ( is_empty() ){
+        this->first = pe;
+        this->last = pe;
+        this->licznik++;
+    }
     std::cout << "Not implemented" << std::endl;
+}
+
+ElementListy::ElementListy( const int v ):
+    wartosc( v )
+{
+
 }

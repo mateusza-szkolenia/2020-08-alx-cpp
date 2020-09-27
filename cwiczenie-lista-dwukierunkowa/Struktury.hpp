@@ -17,9 +17,11 @@ class Lista {
 };
 
 class ElementListy {
-    int wartosc;
-    ElementListy *next;
-    ElementListy *prev;
+    public:
+        int wartosc;
+        ElementListy *next;
+        ElementListy *prev;
+        ElementListy( const int );    
 };
 
 
