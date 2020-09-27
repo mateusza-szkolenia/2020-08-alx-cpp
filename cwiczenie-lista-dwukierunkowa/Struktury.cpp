@@ -18,6 +18,9 @@ std::string Stos::nazwaStr() const {
     return "Stos";
 }
 
+std::string Kolejka::nazwaStr() const {
+    return "Kolejka";
+}
 
 void Lista::pokaz() const {
     std::cout << this->nazwaStr() << "(" << this->licznik << "):" << std::endl;
@@ -166,5 +169,18 @@ int Stos::pop(){
     int w;
     w = this->last->wartosc;
     this->deleteEle( this->last );
+    return w;
+}
+
+void Kolejka::enqueue( const int v ){
+    this->append( v );
+}
+
+int Kolejka::dequeue(){
+    if ( is_empty() ){
+        return 0;
+    }
+    auto w = this->first->wartosc;
+    this->deleteEle( this->first );
     return w;
 }

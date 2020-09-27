@@ -39,4 +39,11 @@ class Stos : public Lista {
         int pop( );
 };
 
+class Kolejka : public Lista {
+    public:
+        virtual std::string nazwaStr() const;
+        void enqueue( const int );
+        int dequeue( );
+};
+
 #endif
