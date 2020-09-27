@@ -4,13 +4,15 @@
 class ElementListy;
 
 class Lista {
-    int licznik;
-    ElementListy *first;
-    ElementListy *last;
+    protected:
+        int licznik;
+        ElementListy *first;
+        ElementListy *last;
 
     public:
         Lista();
         void pokaz() const;
+        virtual std::string nazwaStr() const;
         bool is_empty() const;
         void append( const int );
         void insert( const int );
@@ -30,5 +32,11 @@ class ElementListy {
         void pokaz() const;
 };
 
+class Stos : public Lista {
+    public:
+        virtual std::string nazwaStr() const;
+        void push( const int );
+        int pop( );
+};
 
 #endif

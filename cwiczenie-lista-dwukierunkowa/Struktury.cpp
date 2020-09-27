@@ -10,8 +10,17 @@ Lista::Lista():
 
 }
 
+std::string Lista::nazwaStr() const {
+    return "Lista";
+}
+
+std::string Stos::nazwaStr() const {
+    return "Stos";
+}
+
+
 void Lista::pokaz() const {
-    std::cout << "Lista: " << std::endl;
+    std::cout << this->nazwaStr() << "(" << this->licznik << "):" << std::endl;
     std::cout << " first,last: " << first << "," << last << std::endl;
     if ( this->is_empty() ){
         std::cout << "*** PUSTA ***" << std::endl;
@@ -144,4 +153,18 @@ void Lista::cleanup(){
         this->deleteEle( this->first );
     }
 
+}
+
+void Stos::push( const int v ){
+    this->append( v );
+}
+
+int Stos::pop(){
+    if ( is_empty() ){
+        return 0;
+    }
+    int w;
+    w = this->last->wartosc;
+    this->deleteEle( this->last );
+    return w;
 }
