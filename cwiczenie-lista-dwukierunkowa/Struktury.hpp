@@ -12,11 +12,14 @@ class Lista {
         Lista();
         void pokaz() const;
         bool is_empty() const;
+        void append( int );
 
 };
 
 class ElementListy {
-    Lista *lista;
+    int wartosc;
+    ElementListy *next;
+    ElementListy *prev;
 };
 
 

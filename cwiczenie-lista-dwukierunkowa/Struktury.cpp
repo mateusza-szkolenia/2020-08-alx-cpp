@@ -23,3 +23,10 @@ void Lista::pokaz() const {
 bool Lista::is_empty() const {
     return this->licznik == 0;
 }
+
+void Lista::append( int v ){
+    ElementListy *pe;
+    pe = new ElementListy();
+
+    std::cout << "Not implemented" << std::endl;
+}

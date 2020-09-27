@@ -7,4 +7,11 @@ int main(){
 
     l.pokaz();
 
+    int x = 101;
+    std::cout << "Dodaję pierwszy element: " << 101 << std::endl;
+
+    l.append( x );
+
+    l.pokaz();
+
 }
