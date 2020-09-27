@@ -68,7 +68,7 @@ void Lista::insert( const int v ){
 }
 
 int Lista::count( const int v ) const {
-    auto *cur = this->first;
+    auto cur = this->first;
     int wynik = 0;
     while ( cur != nullptr ){
         if ( cur->wartosc == v ){
@@ -77,6 +77,17 @@ int Lista::count( const int v ) const {
         cur = cur->next;
     }
     return wynik;
+}
+
+ElementListy* Lista::find( const int v ) const {
+    auto cur = this->first;
+    while ( cur != nullptr ){
+        if ( cur->wartosc == v ){
+            return cur;
+        }
+        cur = cur->next;
+    }
+    return nullptr;
 }
 
 ElementListy::ElementListy( const int v ):

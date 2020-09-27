@@ -28,4 +28,8 @@ int main(){
     x = 0;
     std::cout << "Wartosc " << x << " wystepuje: " << l.count(x) << " razy" << std::endl;
 
+    auto e = l.find(3);
+
+    e->pokaz();
+
 }

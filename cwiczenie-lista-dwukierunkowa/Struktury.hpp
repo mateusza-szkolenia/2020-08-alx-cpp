@@ -14,7 +14,8 @@ class Lista {
         bool is_empty() const;
         void append( const int );
         void insert( const int );
-        int count( const int ) const ;
+        int count( const int ) const;
+        ElementListy* find( const int ) const;
 
 };
 
