@@ -3,7 +3,9 @@
 #include "Struktury.hpp"
 
 Lista::Lista():
-    licznik(0)
+    licznik(0),
+    first( nullptr ),
+    last( nullptr )
 {
 
 }
@@ -27,16 +29,21 @@ bool Lista::is_empty() const {
 void Lista::append( int v ){
     ElementListy *pe;
     pe = new ElementListy( v );
+    pe->prev = this->last;
     if ( is_empty() ){
         this->first = pe;
-        this->last = pe;
-        this->licznik++;
     }
-    std::cout << "Not implemented" << std::endl;
+    else {
+        this->last->next = pe;
+    }
+    this->last = pe;
+    this->licznik++;
 }
 
 ElementListy::ElementListy( const int v ):
-    wartosc( v )
+    wartosc( v ),
+    prev( nullptr ),
+    next( nullptr )
 {
 
 }
