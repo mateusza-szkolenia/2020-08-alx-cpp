@@ -20,7 +20,7 @@ int main(){
     std::cout << "Dodaję drugi element: " << x << std::endl;
     l.insert( x );
 
-    for ( auto i = 200; i < 210; i++ ){
+    for ( auto i = 200; i < 205; i++ ){
         l.insert( i % 4 );
     }
 
@@ -30,6 +30,15 @@ int main(){
 
     auto e = l.find(3);
 
-    e->pokaz();
+    l.deleteEle( e );
+
+    l.pokaz();
+
+    l.cleanup();
+    l.cleanup();
+    l.cleanup();
+
+    l.pokaz();
+
 
 }

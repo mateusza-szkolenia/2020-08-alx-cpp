@@ -97,3 +97,51 @@ ElementListy::ElementListy( const int v ):
 {
 
 }
+
+void Lista::deleteEle( ElementListy const * const e ){
+    if ( e->prev ){
+        // jeśli ma poprzednika, to zmieniamy poprzednikowi następnika
+        e->prev->next = e->next;
+    }
+    else {
+        // nie ma poprzednika, a więc jest pierwszy
+        this->first = e->next;
+    }
+
+    if ( e->next ){
+        // jeśli ma następnika, to zmieniamy poprzednikowi mu poprzednika
+        e->next->prev = e->prev;
+    }
+    else {
+        // nie ma następnika, a więc jest ostatni
+        this->last = e->prev;
+    }
+    this->licznik--;
+    delete e;
+
+}
+
+void Lista::cleanup(){
+    auto cur = this->first;
+    ElementListy *ne;
+
+    while ( cur ){
+        ne = cur->next;
+        delete cur;
+        cur = ne;
+    }
+    this->first = nullptr;
+    this->last = nullptr;
+
+    return;
+
+    // KONIEC
+
+    // TEN KOD JEST NIEDOSTEPNY:
+    while( this->first ){
+        // FIXME
+        // prosciej kasowac wszystkie recznie, bez wolania deleteEle(), ktore marnuje czas na aktualizacje wskaznikow
+        this->deleteEle( this->first );
+    }
+
+}

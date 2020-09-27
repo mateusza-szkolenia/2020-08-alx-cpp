@@ -16,6 +16,8 @@ class Lista {
         void insert( const int );
         int count( const int ) const;
         ElementListy* find( const int ) const;
+        void deleteEle( ElementListy const * const );
+        void cleanup();
 
 };
 
