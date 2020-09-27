@@ -4,7 +4,8 @@
 class Lista {
 
     public:
-        void pokaz();
+        void pokaz() const;
+        bool is_empty() const;
 
 };
 
