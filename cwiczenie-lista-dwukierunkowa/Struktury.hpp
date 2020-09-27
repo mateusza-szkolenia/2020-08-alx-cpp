@@ -9,6 +9,7 @@ class Lista {
     ElementListy *last;
 
     public:
+        Lista();
         void pokaz() const;
         bool is_empty() const;
 
