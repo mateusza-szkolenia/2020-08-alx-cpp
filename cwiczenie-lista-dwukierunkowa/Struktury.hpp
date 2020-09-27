@@ -13,6 +13,7 @@ class Lista {
         void pokaz() const;
         bool is_empty() const;
         void append( int );
+        void insert( int );
 
 };
 

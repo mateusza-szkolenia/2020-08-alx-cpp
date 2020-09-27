@@ -15,7 +15,7 @@ int main(){
 
     x = 102;
     std::cout << "Dodaję drugi element: " << x << std::endl;
-    l.append( x );
+    l.insert( x );
 
     for ( auto i = 200; i < 210; i++ ){
         l.append( i );

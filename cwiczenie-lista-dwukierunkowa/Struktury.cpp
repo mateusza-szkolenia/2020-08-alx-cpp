@@ -53,6 +53,20 @@ void Lista::append( int v ){
     this->licznik++;
 }
 
+void Lista::insert( int v ){
+    ElementListy *pe;
+    pe = new ElementListy( v );
+    pe->next = this->first;
+    if ( is_empty() ){
+        this->last = pe;
+    }
+    else {
+        this->first->prev = pe;
+    }
+    this->first = pe;
+    this->licznik++;
+}
+
 ElementListy::ElementListy( const int v ):
     wartosc( v ),
     prev( nullptr ),
