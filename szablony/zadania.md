@@ -15,4 +15,3 @@ Stworzyć klasę `TesterPodzielnosci`, która w konstruktorze przyjmuje jeden pa
     t( 20 ); // zwróci false
     ```
 
-##
