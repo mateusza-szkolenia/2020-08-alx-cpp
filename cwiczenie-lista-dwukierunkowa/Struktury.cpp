@@ -200,3 +200,82 @@ int Kolejka::dequeue(){
     this->deleteEle( this->first );
     return w;
 }
+
+Drzewo::Drzewo() :
+    root( nullptr )
+{
+
+}
+
+void Drzewo::insert( const int v ){
+
+    auto nowy = new ElementDrzewa( v );
+
+    if ( this->root == nullptr ){
+        this->root = nowy;
+    }
+    else {
+        this->root->insert( nowy );
+    }
+}
+
+void ElementDrzewa::insert( ElementDrzewa *i ){
+    if ( i->wartosc < this->wartosc ){
+        // wsadzamy go po lewej str
+        if ( this->left == nullptr ){
+            this->left = i;
+        }
+        else {
+            this->left->insert( i );
+        }
+    }
+    else {
+        // wsadzamy go po prawej str
+        if ( this->right == nullptr ){
+            this->right = i;
+        }
+        else {
+            this->right->insert( i );
+        }
+    }
+
+}
+
+ElementDrzewa::ElementDrzewa( const int v ):
+    wartosc( v ),
+    left( nullptr ),
+    right( nullptr )
+{
+
+}
+
+void ElementDrzewa::drukuj(){
+    std::cout << "[" << this->wartosc << "] "
+        << "<L: " << this->left << " R: " << this->right << ">"; 
+}
+
+void Drzewo::drukuj(){
+    std::cout << "Drzewo: " << this
+        << " <korzen: " << this->root << ">"
+        << std::endl;
+    if ( this->root != nullptr ){
+        drukujPoddrzewo( this->root );
+    }
+}
+
+void Drzewo::drukujPoddrzewo( ElementDrzewa *st, int wciecie ){
+    if ( st->right != nullptr ){
+        drukujPoddrzewo( st->right, wciecie + 1 );
+    }
+
+    for ( auto i = 0; i < wciecie; i++ ){
+        std::cout << "    ";
+    }
+    st->drukuj();
+    std::cout << std::endl;
+
+    if ( st->left != nullptr ){
+        drukujPoddrzewo( st->left, wciecie + 1 );
+    }
+
+}

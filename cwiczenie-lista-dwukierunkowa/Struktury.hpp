@@ -47,4 +47,31 @@ class Kolejka : public Lista {
         int dequeue( );
 };
 
+class ElementDrzewa;
+
+class Drzewo {
+    private:
+        ElementDrzewa *root;
+
+    public:
+        Drzewo();
+        void insert( const int v );
+        void drukuj();
+        void drukujPoddrzewo( ElementDrzewa *st, int wciecie = 0 );
+
+};
+
+class ElementDrzewa {
+    public:
+        int wartosc;
+        ElementDrzewa *left;
+        ElementDrzewa *right;
+
+        ElementDrzewa( const int );
+        void insert( ElementDrzewa * );
+
+        void drukuj();
+        
+};
+
 #endif
