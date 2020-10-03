@@ -29,6 +29,14 @@ struct KomparatorLiczb
     }
 };
 
+struct KomparatorLudzi_WgWagi
+{
+    bool operator()( const Czlowiek & a, const Czlowiek & b ){
+        return a.waga < b.waga;
+    }
+
+};
+
 int main(){
 
     std::list<int> liczby = {
@@ -43,19 +51,14 @@ int main(){
 
     std::list<Czlowiek> ludzie;
 
-    
-
     ludzie.push_back( Czlowiek{ "Andrzej", 80, 1.8 } );
     ludzie.push_back( Czlowiek{ "Michal", 83, 1.7 } );
     ludzie.push_back( Czlowiek{ "Piotr", 78, 1.54 } );
     ludzie.push_back( Czlowiek{ "Bartek", 64, 1.76 } );
     ludzie.push_back( Czlowiek{ "Czeslaw", 100, 1.58 } );
 
-/*
-    for ( auto i = 0; i < ludzie.size(); i++ ){   
-        std::cout << static_cast<std::string>( ludzie[i] ) << std::endl;
-    }
-*/
+    ludzie.sort( KomparatorLudzi_WgWagi() );
+
     for ( auto c : ludzie ){
         std::cout << static_cast<std::string>( c ) << std::endl;
     }
