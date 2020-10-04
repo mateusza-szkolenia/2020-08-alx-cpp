@@ -12,12 +12,17 @@ struct Kompresor;
 class Kompresor {
     std::vector<Wezel*> wezly;
     std::map<int,Wezel*> znaki;
+
+    std::vector<int> buff;
+
     Wezel *korzen;
 
     public:
         void BudujDrzewo();
         void Info();
+        void WczytajBufor();
         Wezel *znajdzNajmniejszyWezel();
+        void KodujDane();
 };
 
 struct Wezel {
@@ -33,6 +38,18 @@ struct Wezel {
         void kodujPoddrzewo();
         std::vector<int> kod;
 };
+
+void Kompresor::KodujDane(){
+    for ( auto c : buff ){
+        std::cout << "znak: " << (int) c ;
+        std::cout << " => ";
+        for ( auto i : znaki[ c ]->kod ){
+            std::cout << i;
+        }
+        std::cout << std::endl;
+
+    }
+}
 
 void Wezel::kodujPoddrzewo( ){
     if ( left ){
@@ -62,10 +79,9 @@ void Wezel::drukujPoddrzewo( int wciecie ){
 }
 
 void Kompresor::BudujDrzewo(){
-    int znak;
-    do 
-    {
-        znak = std::cin.get();
+    
+    for ( auto znak : buff ){
+        
         if ( znaki.count( znak ) ){
             znaki[ znak ]->count++;
         }
@@ -75,7 +91,9 @@ void Kompresor::BudujDrzewo(){
             wezly.push_back( pw );
         }
     }
-    while( znak != -1 );
+    auto eofcode = new Wezel( 1, -1 );
+    wezly.push_back( eofcode );
+    znaki[-1] = eofcode;
 
     for ( auto i = 0; i < znaki.size() - 1; i++ ){
         std::cout << "Budowanie drzewa krok #" << i << ": " << std::endl;
@@ -132,6 +150,14 @@ Wezel* Kompresor::znajdzNajmniejszyWezel(){
     return wynik;
 }
 
+void Kompresor::WczytajBufor(){
+    int znak;
+    while ( ( znak = std::cin.get() ) != -1 ){
+        //std::cout << "wczytano znak: " << znak << std::endl;
+        buff.push_back( znak );
+    }
+}
+
 Wezel::Wezel( Wezel *l, Wezel *p ) :
     left(l),
     right(p),
@@ -184,8 +210,10 @@ void Wezel::Info(){
 
 int main(){
     Kompresor k;
+    k.WczytajBufor();
     k.BudujDrzewo();
     k.Info();
+    k.KodujDane();
 
 }
 
